@@ -1,6 +1,7 @@
 /*
  * Title Caps
  * 
+ * Slight modifications by Sam Mauldin - 13 August 2019
  * Ported to JavaScript By John Resig - http://ejohn.org/ - 21 May 2008
  * Original by John Gruber - http://daringfireball.net/ - 10 May 2008
  * License: http://www.opensource.org/licenses/mit-license.php

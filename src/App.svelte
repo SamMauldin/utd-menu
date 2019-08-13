@@ -1,3 +1,24 @@
+<!--
+
+	Copyright 2019 Sam Mauldin. All rights reserved.
+
+	This file is part of utd-menu.
+
+	utd-menu is free software: you can redistribute it and/or modify
+	it under the terms of the GNU Affero General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	utd-menu is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU Affero General Public License for more details.
+
+	You should have received a copy of the GNU Affero General Public License
+	along with utd-menu. If not, see <https://www.gnu.org/licenses/>.
+	
+-->
+
 <script>
 	import { DateTime } from "luxon";
 	import MenuSection from "./MenuSection.svelte";
@@ -148,6 +169,6 @@
 {/if}
 
 <p class="legal">
-	A utility by Sam Mauldin. <a href="mailto:sam@mauldin.me">Contact</a>. Copyright 2019. All rights reserved. Data from UTD Dining Services.
+	A utility by Sam Mauldin. <a href="mailto:sam@mauldin.me">Contact</a>. Copyright 2019 Sam Mauldin. Distributed under GNU AGPLv3. <a href="https://github.com/SamMauldin/utd-menu">Source</a>. Data from UTD Dining Services.
 	I am not affiliated, associated, authorized, endorsed by, or in any way officially connected with the University of Texas at Dallas, or any of its subsidiaries or its affiliates.
 </p>
