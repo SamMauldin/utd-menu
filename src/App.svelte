@@ -16,7 +16,7 @@
 
 	You should have received a copy of the GNU Affero General Public License
 	along with utd-menu. If not, see <https://www.gnu.org/licenses/>.
-	
+
 -->
 
 <script>
@@ -169,6 +169,6 @@
 {/if}
 
 <p class="legal">
-	A utility by Sam Mauldin. <a href="mailto:sam@mauldin.me">Contact</a>. Copyright 2019 Sam Mauldin. Distributed under GNU AGPLv3. <a href="https://github.com/SamMauldin/utd-menu">Source</a>. Data from UTD Dining Services.
+	A utility by Sam Mauldin. <a href="mailto:sam@mauldin.me">Contact</a>. Copyright 2019 Sam Mauldin. All rights reserved. Distributed under GNU AGPLv3. <a href="https://github.com/SamMauldin/utd-menu">Source</a>. Data from UTD Dining Services.
 	I am not affiliated, associated, authorized, endorsed by, or in any way officially connected with the University of Texas at Dallas, or any of its subsidiaries or its affiliates.
 </p>
