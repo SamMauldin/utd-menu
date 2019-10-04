@@ -25,27 +25,54 @@ import titleCaps from "./titlecaps.js";
 // Clean up the menu, fixing formatting
 // and removing certain fields
 function cleanMenu(menu) {
+  // Filter out unwanted sections
   return menu.filter(section => {
     if (section.name == "Salad Bar") { return false; }
     if (section.name == "Deli Bar") { return false; }
     if (section.name == "Every Day") { return false; }
-
+    
     return true;
   }).map(section => {
+    // Clean each section
     return {
       name: section.name,
-      categories: section.categories.map(category => {
+      // Remove unwanted categories
+      categories: section.categories.filter(category => {
+        if (category.name == "Salad") { return false; }
+        if (category.name == "Deli") { return false; }
+        if (category.name == "My Pantry") { return false; }
+
+        return true;
+      }).map(category => {
+        // Stylistic name changes
         if (category.name == "Bakery-Dessert") {
           category.name = "Bakery";
         }
   
-        if (category.name == "Pizza Pizza") {
+        if (category.name == "Pizza Pizza" || category.name == "Pizza, Flatbreads") {
           category.name = "Pizza";
+        }
+
+        if (category.name == "Salad Bar Composed Salads") {
+          category.name = "Salads";
+        }
+
+        if (category.name == "Comfort/Homestyle") {
+          category.name = "Comfort / Homestyle";
+        }
+
+        if (category.name == "wok") {
+          category.name = "Wok";
+        }
+
+        if (category.name == "wok") {
+          category.name = "Wok";
         }
 
         return {
           name: category.name,
           items: category.items.map(item => {
+            // Item name formatting and changes
             item.name = titleCaps(item.name);
 
             item.name = item.name.split(/,(?=[^ ])/).join(", ");
@@ -60,6 +87,8 @@ function cleanMenu(menu) {
     
             item.name = item.name.split("&").join("and");
 
+            item.name = item.name.split("MandM").join("M&M");
+
             return { name: item.name };
           })
         };
@@ -68,6 +97,7 @@ function cleanMenu(menu) {
   });
 }
 
+// Require items for a date
 export function fetch(apiDate, cb) {
   
   const apiStringParts = apiDate.toLocaleString(DateTime.DATE_SHORT).split("/");
@@ -97,6 +127,11 @@ export function fetch(apiDate, cb) {
   }
 }
 
+// Cache system: fetched items should never change, so we can keep the
+// latest entires. Space isn't a huge concern and we don't need to
+// use old items, so we can simply evict items after they
+// haven't been used in a few days.
+
 let cacheVer = 4;
 
 let cache = {
@@ -104,6 +139,7 @@ let cache = {
   version: cacheVer
 };
 
+// Attempt to load the cache, but default to an empty one.
 try {
   let loadCache = JSON.parse(localStorage["utd-menu-cache"]);
   if (loadCache.version == cacheVer) {
